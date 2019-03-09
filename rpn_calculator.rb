@@ -1,6 +1,15 @@
 puts 'Welcome to the RPN Calculator. Please input a calculation.'
 
-first_value = 1
-second_value = gets.chomp.to_i
+running_calculation = true
+numbers = []
+current_value = 0
 
-puts first_value + second_value
+while running_calculation
+  numbers << gets.chomp
+
+  if gets.chomp == "q"
+    running_calculation = false
+  end
+end
+
+print numbers
