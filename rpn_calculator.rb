@@ -10,9 +10,17 @@ while running_calculation
   if user_input == "q"
     running_calculation = false
     puts "Calculation terminated. Goodbye!"
+  elsif user_input == "+"
+    puts "Adding!"
+  elsif user_input == "-"
+    puts "Subtracting!"
+  elsif user_input == "*"
+    puts "Multiplying!"
+  elsif user_input == "/"
+    puts "Dividing!"
+  else
+    numbers << user_input.to_i
   end
-
-  numbers << user_input.to_i unless user_input == "q"
 end
 
 print numbers
