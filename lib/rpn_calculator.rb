@@ -1,5 +1,3 @@
-puts 'Welcome to the RPN Calculator. Please input a calculation.'
-
 running_calculation = true
 numbers = []
 
