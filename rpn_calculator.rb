@@ -1,7 +1,6 @@
 puts 'Welcome to the RPN Calculator. Please input a calculation.'
 
 running_calculation = true
-current_value = 0
 numbers = []
 
 while running_calculation
@@ -12,6 +11,10 @@ while running_calculation
     puts "Calculation terminated. Goodbye!"
   elsif user_input == "+"
     puts "Adding!"
+    sum = numbers[-1] + numbers[-2]
+    numbers = numbers[0..-3]
+    numbers << sum
+    puts "= #{sum}"
   elsif user_input == "-"
     puts "Subtracting!"
   elsif user_input == "*"
