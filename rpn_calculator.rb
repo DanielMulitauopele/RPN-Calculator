@@ -25,7 +25,10 @@ while running_calculation
     numbers << product
     puts "= #{product}"
   elsif user_input == "/"
-    puts "Dividing!"
+    quot = numbers[-2] / numbers[-1]
+    numbers = numbers[0..-3]
+    numbers << quot
+    puts "= #{quot}"
   else
     numbers << user_input.to_i
   end
