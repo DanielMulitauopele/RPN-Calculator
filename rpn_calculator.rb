@@ -1,6 +1,37 @@
 puts 'Welcome to the RPN Calculator. Please input a calculation.'
 
-first_value = 1
-second_value = gets.chomp.to_i
+running_calculation = true
+numbers = []
 
-puts first_value + second_value
+while running_calculation
+  user_input = gets.chomp
+
+  if user_input == "q"
+    running_calculation = false
+    puts "Calculation terminated. Goodbye!"
+  elsif user_input == "+"
+    sum = numbers[-2] + numbers[-1]
+    numbers = numbers[0..-3]
+    numbers << sum
+    puts "= #{sum}"
+  elsif user_input == "-"
+    diff = numbers[-2] - numbers[-1]
+    numbers = numbers[0..-3]
+    numbers << diff
+    puts "= #{diff}"
+  elsif user_input == "*"
+    product = numbers[-2] * numbers[-1]
+    numbers = numbers[0..-3]
+    numbers << product
+    puts "= #{product}"
+  elsif user_input == "/"
+    quot = numbers[-2] / numbers[-1]
+    numbers = numbers[0..-3]
+    numbers << quot
+    puts "= #{quot}"
+  else
+    numbers << user_input.to_i
+  end
+end
+
+print numbers
