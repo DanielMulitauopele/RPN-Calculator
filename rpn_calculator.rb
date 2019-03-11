@@ -10,13 +10,15 @@ while running_calculation
     running_calculation = false
     puts "Calculation terminated. Goodbye!"
   elsif user_input == "+"
-    puts "Adding!"
-    sum = numbers[-1] + numbers[-2]
+    sum = numbers[-2] + numbers[-1]
     numbers = numbers[0..-3]
     numbers << sum
     puts "= #{sum}"
   elsif user_input == "-"
-    puts "Subtracting!"
+    diff = numbers[-2] - numbers[-1]
+    numbers = numbers[0..-3]
+    numbers << diff
+    puts "= #{diff}"
   elsif user_input == "*"
     puts "Multiplying!"
   elsif user_input == "/"
