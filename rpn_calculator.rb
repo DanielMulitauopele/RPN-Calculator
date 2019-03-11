@@ -20,7 +20,10 @@ while running_calculation
     numbers << diff
     puts "= #{diff}"
   elsif user_input == "*"
-    puts "Multiplying!"
+    product = numbers[-2] * numbers[-1]
+    numbers = numbers[0..-3]
+    numbers << product
+    puts "= #{product}"
   elsif user_input == "/"
     puts "Dividing!"
   else
