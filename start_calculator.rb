@@ -1,3 +1,5 @@
+require './lib/rpn_calculator'
+
 puts 'Welcome to the RPN Calculator. Please input a calculation.'
 
 calculator = RPNCalculator.new
