@@ -57,12 +57,12 @@ class RPNCalculator
 
   def replace_and_insert(result)
     @numbers = @numbers[0..-3]
-    @numbers << result
-    puts "= #{result}"
+    @numbers << result.round(2)
+    puts "= #{result.round(2)}"
   end
 
   def instructions
-    puts "Type any integer to add to the current stack."
+    puts "Type any integer to add to the current stack. Any non-integer value will be converted to 0."
     puts "In order to complete an operation, use one of the following operators: add (+), subtract (-), multiply (*), or divide (/)."
     puts "All operations require at least two elements in the stack."
   end
