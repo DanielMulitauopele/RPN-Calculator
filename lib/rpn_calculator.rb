@@ -2,7 +2,7 @@ class RPNCalculator
   def initialize
     @numbers = []
     @running_calculation = true
-    @hash = {
+    @operators = {
       'q': method(:quit),
       '+': method(:sum),
       '-': method(:subtract),
@@ -18,15 +18,12 @@ class RPNCalculator
   def start
     while @running_calculation
       user_input = gets.chomp
-
-      if @hash.key?(user_input.to_sym)
-        @hash[user_input.to_sym].call
+      if @operators.key?(user_input.to_sym)
+        @operators[user_input.to_sym].call
       else
         @numbers << user_input.to_i
       end
     end
-
-    p @numbers
   end
 
   def sum
