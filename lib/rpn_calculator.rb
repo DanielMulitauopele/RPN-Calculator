@@ -1,6 +1,7 @@
 class RPNCalculator
   def initialize
     @numbers = []
+    @running_calculation = true
     @hash = {
       'q': method(:quit),
       '+': method(:sum),
@@ -15,16 +16,11 @@ class RPNCalculator
   end
 
   def start
-    running_calculation = true
-
-    while running_calculation
+    while @running_calculation
       user_input = gets.chomp
 
-      if user_input == 'q'
-        running_calculation = false
-        quit
-      elsif @hash.key?(user_input)
-        @hash[user_input]
+      if @hash.key?(user_input.to_sym)
+        @hash[user_input.to_sym].call
       else
         @numbers << user_input.to_i
       end
@@ -60,6 +56,7 @@ class RPNCalculator
   end
 
   def quit
+    @running_calculation = false
     puts "Calculation terminated. Goodbye!"
   end
 end
