@@ -1,10 +1,14 @@
 class RPNCalculator
   def initialize
+    @numbers = []
+  end
+
+  def welcome_message
+    puts 'Welcome to the RPN Calculator. Please input a calculation.'
   end
 
   def start
     running_calculation = true
-    numbers = []
 
     while running_calculation
       user_input = gets.chomp
@@ -13,30 +17,46 @@ class RPNCalculator
         running_calculation = false
         puts "Calculation terminated. Goodbye!"
       elsif user_input == "+"
-        sum = numbers[-2] + numbers[-1]
-        numbers = numbers[0..-3]
-        numbers << sum
-        puts "= #{sum}"
+        sum
       elsif user_input == "-"
-        diff = numbers[-2] - numbers[-1]
-        numbers = numbers[0..-3]
-        numbers << diff
-        puts "= #{diff}"
+        subtract
       elsif user_input == "*"
-        product = numbers[-2] * numbers[-1]
-        numbers = numbers[0..-3]
-        numbers << product
-        puts "= #{product}"
+        multiply
       elsif user_input == "/"
-        quot = numbers[-2] / numbers[-1]
-        numbers = numbers[0..-3]
-        numbers << quot
-        puts "= #{quot}"
+        divide
       else
-        numbers << user_input.to_i
+        @numbers << user_input.to_i
       end
     end
 
-    print numbers
+    p @numbers
+  end
+
+  def sum
+    sum = @numbers[-2] + @numbers[-1]
+    @numbers = @numbers[0..-3]
+    @numbers << sum
+    puts "= #{sum}"
+  end
+
+  def subtract
+    diff = @numbers[-2] - @numbers[-1]
+    @numbers = @numbers[0..-3]
+    @numbers << diff
+    puts "= #{diff}"
+  end
+
+  def multiply
+    product = @numbers[-2] * @numbers[-1]
+    @numbers = @numbers[0..-3]
+    @numbers << product
+    puts "= #{product}"
+  end
+
+  def divide
+    quot = @numbers[-2] / @numbers[-1]
+    @numbers = @numbers[0..-3]
+    @numbers << quot
+    puts "= #{quot}"
   end
 end
