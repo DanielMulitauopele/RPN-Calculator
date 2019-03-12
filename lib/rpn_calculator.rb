@@ -1,4 +1,6 @@
 class RPNCalculator
+  attr_accessor :numbers
+
   def initialize
     @numbers = []
     @running_calculation = true
