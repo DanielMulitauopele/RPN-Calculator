@@ -5,29 +5,49 @@ class RPNCalculator
     @numbers = []
     @running_calculation = true
     @operators = {
-      'q': method(:quit),
-      'i': method(:instructions),
-      'w': method(:wikipedia),
       '+': method(:sum),
       '-': method(:subtract),
       '*': method(:multiply),
       '/': method(:divide)
     }
+    @commands = {
+      'q': method(:quit),
+      'i': method(:instructions),
+      'w': method(:wikipedia),
+      's': method(:check_stack)
+    }
   end
 
   def welcome_message
     puts "Welcome to the RPN Calculator! In Reverse Polish Notation (RPN), the operators follow their operands."
-    puts "Press 'i' for instructions on use, press 'w' for a link to more info about RPN, and press 'q' to quit."
+    puts "Press 'i' for instructions on use."
+    puts "Press 'w' for a link to more info about RPN."
+    puts "Press 's' to see the current stack."
+    puts "Press 'q' to quit."
   end
 
   def start
     while @running_calculation
       user_input = gets.chomp
-      if @operators.key?(user_input.to_sym)
-        @operators[user_input.to_sym].call
-      else
-        @numbers << user_input.to_f
-      end
+      verify_operands(user_input)
+    end
+  end
+
+  def verify_operands(user_input)
+    if @operators.key?(user_input.to_sym) && @numbers.count < 2
+      puts "There are not enough operands to complete this operations. Please ensure there are at least two operands."
+    else
+      run_calculation(user_input)
+    end
+  end
+
+  def run_calculation(user_input)
+    if @commands.key?(user_input.to_sym)
+      @commands[user_input.to_sym].call
+    elsif @operators.key?(user_input.to_sym)
+      @operators[user_input.to_sym].call
+    else
+      @numbers << user_input.to_i
     end
   end
 
@@ -59,6 +79,11 @@ class RPNCalculator
     @numbers = @numbers[0..-3]
     @numbers << result.round(2)
     puts "= #{result.round(2)}"
+  end
+
+
+  def check_stack
+    p @numbers
   end
 
   def instructions
