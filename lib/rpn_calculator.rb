@@ -26,7 +26,7 @@ class RPNCalculator
       if @operators.key?(user_input.to_sym)
         @operators[user_input.to_sym].call
       else
-        @numbers << user_input.to_i
+        @numbers << user_input.to_f
       end
     end
   end
@@ -47,19 +47,18 @@ class RPNCalculator
   end
 
   def divide
-    quotient = @numbers[-2] / @numbers[-1]
-    replace_and_insert(quotient)
+    if @numbers[-1] == 0
+      puts "Dividing by zero is undefined. Use a different operator."
+    else
+      quotient = @numbers[-2] / @numbers[-1]
+      replace_and_insert(quotient)
+    end
   end
 
   def replace_and_insert(result)
     @numbers = @numbers[0..-3]
     @numbers << result
     puts "= #{result}"
-  end
-
-  def quit
-    @running_calculation = false
-    puts "Calculation terminated. Goodbye!"
   end
 
   def instructions
@@ -71,5 +70,10 @@ class RPNCalculator
   def wikipedia
     puts "For more on RPN, please paste this link into your browser:"
     puts "https://en.wikipedia.org/wiki/Reverse_Polish_notation"
+  end
+
+  def quit
+    @running_calculation = false
+    puts "Calculation terminated. Goodbye!"
   end
 end
