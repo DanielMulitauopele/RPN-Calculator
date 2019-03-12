@@ -13,7 +13,8 @@ class RPNCalculator
     @commands = {
       'q': method(:quit),
       'i': method(:instructions),
-      'w': method(:wikipedia),
+      '?': method(:wikipedia),
+      'w': method(:welcome_message),
       's': method(:check_stack)
     }
   end
@@ -21,8 +22,9 @@ class RPNCalculator
   def welcome_message
     puts "Welcome to the RPN Calculator! In Reverse Polish Notation (RPN), the operators follow their operands."
     puts "Press 'i' for instructions on use."
-    puts "Press 'w' for a link to more info about RPN."
+    puts "Press '?' for a link to more info about RPN."
     puts "Press 's' to see the current stack."
+    puts "Press 'w' to repeat this welcome message."
     puts "Press 'q' to quit."
   end
 
@@ -47,7 +49,7 @@ class RPNCalculator
     elsif @operators.key?(user_input.to_sym)
       @operators[user_input.to_sym].call
     else
-      @numbers << user_input.to_i
+      @numbers << user_input.to_f
     end
   end
 
@@ -93,7 +95,7 @@ class RPNCalculator
   end
 
   def wikipedia
-    puts "For more on RPN, please paste this link into your browser:"
+    puts "For more on Reverse Polish Notation, please paste this link into your browser:"
     puts "https://en.wikipedia.org/wiki/Reverse_Polish_notation"
   end
 
