@@ -1,5 +1,7 @@
 # Trelora RPN Calculator
 
+<img src="https://github.com/DanielMulitauopele/RPN-Calculator/blob/master/TRELORA-Logo-.png" title="trelora-logo" width="auto">
+
 ## Table of Contents
 
 * [Description/Purpose](#descriptionpurpose)
@@ -78,7 +80,7 @@ From the start, my hope was to achieve a brute force solution. But in order to d
 
 ### Refactoring
 
-Once the main functionality was there, I reviewed my code and saw what I had expected: it was ugly as all get out. So the next step was to refactor the functionality into code that was easily readable, followed Object Oriented Programming principles (Abstraction, Encapsulation, etc.), and enhanced the user experience. I added commands that let the user interact more freely with the program ('?' for a wikipedia link, 'i' for instructions). I also separated the main functionality of the calculator into its own class, using a runner file to initiate the calculator, as in my view, 'starting' the calculator is different in nature than computing calculations. I also divided all of the functionality into smaller, more specific methods that had a singular responsibility.
+Once the main functionality was there, I reviewed my code and saw what I had expected: it was ugly as all get out. So the next step was to refactor the functionality into code that was easily readable, followed Object Oriented Programming principles (Abstraction, Encapsulation, etc.), and enhanced the user experience. I added commands that let the user interact more freely with the program ('?' for a wikipedia link, 'i' for instructions). I also separated the main functionality of the calculator into its own class, using a runner file to initiate the calculator, as in my view, 'starting' the calculator is different in nature than computing calculations. I also divided all of the functionality into smaller, more specific methods that had a singular responsibility. One decision that I was proud of was choosing to save my methods as values in an instance variable hash, and making the user inputs correspond to symbol keys. I could have saved them as strings, but symbols, in general, have [faster look up times](https://stackoverflow.com/questions/8189416/why-use-symbols-as-hash-keys-in-ruby). I believe this decision, while it does use expensive instance variables, helps other developers understand more easily what my code is trying to accomplish.
 
 ### Testing
 
