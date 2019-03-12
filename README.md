@@ -78,13 +78,16 @@ From the start, my hope was to achieve a brute force solution. But in order to d
 
 ### Refactoring
 
+Once the main functionality was there, I reviewed my code and saw what I had expected: it was ugly as all get out. So the next step was to refactor the functionality into code that was easily readable, followed Object Oriented Programming principles (Abstraction, Encapsulation, etc.), and enhanced the user experience. I added commands that let the user interact more freely with the program ('?' for a wikipedia link, 'i' for instructions). I also separated the main functionality of the calculator into its own class, using a runner file to initiate the calculator, as in my view, 'starting' the calculator is different in nature than computing calculations. I also divided all of the functionality into smaller, more specific methods that had a singular responsibility.
 
+### Testing
+
+In general, I try to write tests first. However, having written the brute force solution to begin with, going back to write tests with that big clump of code would have been more time-intensive than choosing to refactor first, and then writing unit tests that addressed those particular parts of code. In terms of TDD, this was not by the book, which is something I normally pride myself on. However, the reality of a deadline encourages short term solutions, and for me, this demonstrates my ability to adjust my coding style to what is necessary. In addition to writing tests later, I also chose to not write tests for printed output. I did not feel those were necessary, in that the printed text can change depending on the desired output. 
 
 ## Dependencies
 
 **Development**
 
-* [SimpleCov](https://github.com/colszowka/simplecov)
 * [MiniTest](https://github.com/seattlerb/minitest)
 
 ## Contributors
