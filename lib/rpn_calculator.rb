@@ -6,6 +6,8 @@ class RPNCalculator
     @running_calculation = true
     @operators = {
       'q': method(:quit),
+      'i': method(:instructions),
+      'w': method(:wikipedia),
       '+': method(:sum),
       '-': method(:subtract),
       '*': method(:multiply),
@@ -14,7 +16,8 @@ class RPNCalculator
   end
 
   def welcome_message
-    puts 'Welcome to the RPN Calculator. Please input a calculation.'
+    puts "Welcome to the RPN Calculator! In Reverse Polish Notation (RPN), the operators follow their operands."
+    puts "Press 'i' for instructions on use, press 'w' for a link to more info about RPN, and press 'q' to quit."
   end
 
   def start
@@ -57,5 +60,14 @@ class RPNCalculator
   def quit
     @running_calculation = false
     puts "Calculation terminated. Goodbye!"
+  end
+
+  def instructions
+    
+  end
+
+  def wikipedia
+    puts "For more on RPN, please paste this link into your browser:"
+    puts "https://en.wikipedia.org/wiki/Reverse_Polish_notation"
   end
 end
