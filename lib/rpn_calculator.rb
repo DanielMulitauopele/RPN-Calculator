@@ -37,7 +37,7 @@ class RPNCalculator
 
   def verify_operands(user_input)
     if @operators.key?(user_input.to_sym) && @numbers.count < 2
-      puts "There are not enough operands to complete this operations. Please ensure there are at least two operands."
+      puts "There are not enough operands to complete this operation. Please ensure there are at least two operands."
     else
       run_calculation(user_input)
     end
