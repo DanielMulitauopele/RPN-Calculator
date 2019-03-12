@@ -63,7 +63,9 @@ class RPNCalculator
   end
 
   def instructions
-    
+    puts "Type any integer to add to the current stack."
+    puts "In order to complete an operation, use one of the following operators: add (+), subtract (-), multiply (*), or divide (/)."
+    puts "All operations require at least two elements in the stack."
   end
 
   def wikipedia
