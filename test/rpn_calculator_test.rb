@@ -9,4 +9,11 @@ class RPNCalculatorTest < MiniTest::Test
   def test_it_exists
     assert_instance_of RPNCalculator, @calculator
   end
+
+  def test_numbers_is_empty_by_default
+    expected = []
+    actual = @calculator.numbers
+
+    assert_equal expected, actual
+  end
 end
