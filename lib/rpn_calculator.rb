@@ -3,7 +3,6 @@ class RPNCalculator
 
   def initialize
     @numbers = []
-    @running_calculation = true
   end
 
   def welcome_message
@@ -16,7 +15,7 @@ class RPNCalculator
   end
 
   def start
-    while @running_calculation
+    while true
       user_input = gets.chomp
       verify_operands(user_input)
     end
@@ -106,7 +105,6 @@ class RPNCalculator
   end
 
   def quit
-    @running_calculation = false
-    puts "Calculation terminated. Goodbye!"
+    abort "Calculation terminated. Goodbye!"
   end
 end
