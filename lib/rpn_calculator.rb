@@ -1,5 +1,5 @@
 class RPNCalculator
-  attr_accessor :numbers
+  attr_reader :numbers
 
   def initialize
     @numbers = []
@@ -20,6 +20,8 @@ class RPNCalculator
       verify_operands(user_input)
     end
   end
+
+  private
 
   def commands
     {
