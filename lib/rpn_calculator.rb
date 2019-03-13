@@ -4,19 +4,6 @@ class RPNCalculator
   def initialize
     @numbers = []
     @running_calculation = true
-    @operators = {
-      '+': method(:sum),
-      '-': method(:subtract),
-      '*': method(:multiply),
-      '/': method(:divide)
-    }
-    @commands = {
-      'q': method(:quit),
-      'i': method(:instructions),
-      '?': method(:wikipedia),
-      'w': method(:welcome_message),
-      's': method(:check_stack)
-    }
   end
 
   def welcome_message
@@ -35,8 +22,27 @@ class RPNCalculator
     end
   end
 
+  def commands
+    {
+      'q': method(:quit),
+      'i': method(:instructions),
+      '?': method(:wikipedia),
+      'w': method(:welcome_message),
+      's': method(:check_stack)
+    }
+  end
+
+  def operators
+    {
+      '+': method(:sum),
+      '-': method(:subtract),
+      '*': method(:multiply),
+      '/': method(:divide)
+    }
+  end
+
   def verify_operands(user_input)
-    if @operators.key?(user_input.to_sym) && @numbers.count < 2
+    if operators.key?(user_input.to_sym) && @numbers.count < 2
       puts "There are not enough operands to complete this operation. Please ensure there are at least two operands."
     else
       run_calculation(user_input)
@@ -44,10 +50,10 @@ class RPNCalculator
   end
 
   def run_calculation(user_input)
-    if @commands.key?(user_input.to_sym)
-      @commands[user_input.to_sym].call
-    elsif @operators.key?(user_input.to_sym)
-      @operators[user_input.to_sym].call
+    if commands.key?(user_input.to_sym)
+      commands[user_input.to_sym].call
+    elsif operators.key?(user_input.to_sym)
+      operators[user_input.to_sym].call
     else
       @numbers << user_input.to_f
     end
