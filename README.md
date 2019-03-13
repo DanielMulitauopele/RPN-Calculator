@@ -1,4 +1,5 @@
 # Trelora RPN Calculator
+<img src="https://img.shields.io/badge/ruby%20-v2.4.1-red.svg" title="ruby-badge">
 
 <img src="https://github.com/DanielMulitauopele/RPN-Calculator/blob/master/TRELORA-Logo-.png" title="trelora-logo" width="auto">
 
