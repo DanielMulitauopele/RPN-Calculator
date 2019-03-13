@@ -10,6 +10,7 @@ class RPNCalculator
     puts "Press 'i' for instructions on use."
     puts "Press '?' for a link to more info about RPN."
     puts "Press 's' to see the current stack."
+    puts "Press 'c' to clear the current stack."
     puts "Press 'w' to repeat this welcome message."
     puts "Press 'q' to quit."
   end
@@ -29,7 +30,8 @@ class RPNCalculator
       'i': method(:instructions),
       '?': method(:wikipedia),
       'w': method(:welcome_message),
-      's': method(:check_stack)
+      's': method(:check_stack),
+      'c': method(:clear_stack)
     }
   end
 
@@ -93,6 +95,11 @@ class RPNCalculator
 
   def check_stack
     p @numbers
+  end
+
+  def clear_stack
+    @numbers = []
+    puts "Stack cleared."
   end
 
   def instructions
