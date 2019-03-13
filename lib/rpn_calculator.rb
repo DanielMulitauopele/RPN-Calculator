@@ -92,7 +92,6 @@ class RPNCalculator
     puts "= #{result.round(2)}"
   end
 
-
   def check_stack
     p @numbers
   end
