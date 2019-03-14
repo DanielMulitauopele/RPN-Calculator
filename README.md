@@ -89,6 +89,10 @@ In general, I try to write tests first. However, having written the brute force 
 
 I came to realize, however, that the majority of my methods did not need to be exposed outside of the class. More importantly, in order to truly unit test the small pieces of functionality, I would have needed to use an attr_accessor for numbers, to allow for 'write' access in my test file. This, in general, is a big no no. So I was faced with a decision: give write access to @numbers so that the operator methods can be adequately tested, thus demonstrating my ability in TDD? Or should I block access to @numbers in addition to those other methods, thus sealing off information but also leaving my test file looking like I've never written a test before. I chose the latter, and I would love to talk more about TDD if need be later on!
 
+### Regex
+
+One feature that I did not get around to completing was adding regex validations. As of right now, the user can enter '3.3.3' and the program automatically reduces that down to '3.3'. That's not the worst thing in the world, but it's not ideal. I've added an declaratory message to the user that any input that is not a command, operator, or integer will be converted to 0. Entering an 'e', for example, would add a 0 to the stack. However, if a user entered an invalid input by accident, they'd need to start their application over. This would be frustrating if the calculation was quite long. I had hoped to add the regex validations, but I chose to spend more time on the product challenge. If you'd like to discuss this more, I'd be more than happy to!
+
 ## Dependencies
 
 **Development**
