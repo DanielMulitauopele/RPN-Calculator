@@ -1,7 +1,5 @@
-# Trelora RPN Calculator
+# RPN Calculator
 <img src="https://img.shields.io/badge/ruby%20-v2.4.1-brightgreen.svg" title="ruby-badge">
-
-<img src="https://github.com/DanielMulitauopele/RPN-Calculator/blob/master/TRELORA-Logo-.png" title="trelora-logo" width="auto">
 
 ## Table of Contents
 
@@ -17,8 +15,7 @@
 ## Description/Purpose
 
 This application was built to demonstrate my proficiency and ability to use Ruby, as well
-as my understanding of OOP and DRY principles. As a candidate for the
-software development position at Trelora, I hope this application demonstrates my aptitude for critical thinking, flexibility when working with new concepts, and a red-green-refactor approach to development. The prompt for this project is listed below.
+as my understanding of OOP and DRY principles. I hope this application demonstrates my aptitude for critical thinking, flexibility when working with new concepts, and a red-green-refactor approach to development. The prompt for this project is listed below.
 
 ## Prompt
 
